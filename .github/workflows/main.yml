@@ -4,8 +4,6 @@ on:
   workflow_dispatch:
 
 env:
-  CLONE_BRANCH: master
-  AZURE_IP_ADDRESS: 153.81.237.136
   WINDOWS_VERSION: win10
   XFS_SIMULATOR_VERSION: 4.7.0
   APTRA_ADVANCE_NDC_VERSION: 5.2.0
@@ -22,23 +20,18 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          ref: ${{ env.CLONE_BRANCH }}
 
       - name: Print default parameters
         shell: pwsh
         run: |
-          Write-Host "CLONE_BRANCH: ${{ env.CLONE_BRANCH }}"
-          Write-Host "AZURE_IP_ADDRESS: ${{ env.AZURE_IP_ADDRESS }}"
           Write-Host "WINDOWS_VERSION: ${{ env.WINDOWS_VERSION }}"
           Write-Host "XFS_SIMULATOR_VERSION: ${{ env.XFS_SIMULATOR_VERSION }}"
           Write-Host "APTRA_ADVANCE_NDC_VERSION: ${{ env.APTRA_ADVANCE_NDC_VERSION }}"
-          Write-Host "APTRA_ADVANCE_NDC_PATCH_BRANCH: ${{ env.APTRA_ADVANCE_NDC_PATCH_BRANCH }}"
           Write-Host "EMV_VERSION: ${{ env.EMV_VERSION }}"
           Write-Host "NDC_ENTERPRISE_VERSION: ${{ env.NDC_ENTERPRISE_VERSION }}"
           Write-Host "AUTOMATION_BASE_TARF_VERSION: ${{ env.AUTOMATION_BASE_TARF_VERSION }}"
-          Write-Host "CONNECTIONS_SERVER_URL: ${{ env.CONNECTIONS_SERVER_URL }}"
           Write-Host "PROJECT_TYPE: ${{ env.PROJECT_TYPE }}"
           Write-Host "AUTOMATION_FOR_NDC_ENTERPRISE_VERSION: ${{ env.AUTOMATION_FOR_NDC_ENTERPRISE_VERSION }}"
+``
